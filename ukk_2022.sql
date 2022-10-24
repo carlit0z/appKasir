@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2022 at 02:32 AM
+-- Generation Time: Oct 24, 2022 at 09:01 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -41,7 +41,8 @@ INSERT INTO `kategori_produk` (`id`, `kategori`) VALUES
 (2, 'Minuman'),
 (3, 'ATK'),
 (4, 'Rumah tangga'),
-(5, 'Elektronik');
+(5, 'Elektronik'),
+(6, 'Teman');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `nama`, `role`) VALUES
 (1, 'admin', '$2y$10$/I7laWi1mlNFxYSv54EUPOH8MuZhmRWxhE.LaddTK9TSmVe.IHP2C', 'Admin', '1'),
-(4, 'zaka', '$2y$10$D68KHAMwQYvv4C1vmSgxwOniGzBcUER45TNOVnFYsWzfsSy6/x1j6', 'zaka', '2');
+(4, 'zaka', '$2y$10$D68KHAMwQYvv4C1vmSgxwOniGzBcUER45TNOVnFYsWzfsSy6/x1j6', 'zaka', '2'),
+(6, 'Faris', '$2y$10$hkphKOF06eJloc1KSd9wK.faCMxmuNbdiWR64LPXACNI10nARfeye', 'Faris', '2');
 
 -- --------------------------------------------------------
 
@@ -108,10 +110,12 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `barcode`, `nama_produk`, `kategori`, `satuan`, `harga`, `stok`, `terjual`) VALUES
-(3, 'ICTThTe', 'Ichitan Thai Tea', 2, 6, '8000', 1033, '4'),
+(3, 'ICTThTe', 'Ichitan Thai Tea', 2, 6, '8000', 1023, '7'),
 (4, 'BCLe', 'Beras Cap Lele', 4, 7, '255000', 506, '2'),
-(5, 'AQ888', 'AQUA Mineral water', 2, 5, '40000', 201, ''),
-(6, 'PTTLKMVou', 'Voucher Telkom', 5, 2, '50000', 31, '5');
+(5, 'AQ888', 'AQUA Mineral water', 2, 5, '40000', 199, '2'),
+(6, 'PTTLKMVou', 'Voucher Telkom', 5, 2, '50000', 31, '5'),
+(7, 'qooo', 'Coca cola', 2, 6, '5000', 92, '8'),
+(8, 'CH', 'Choi', 6, 8, '1000000', 87, '3');
 
 -- --------------------------------------------------------
 
@@ -135,7 +139,8 @@ INSERT INTO `satuan_produk` (`id`, `satuan`) VALUES
 (4, 'Renteng'),
 (5, 'Galon'),
 (6, 'Botol'),
-(7, 'Karung');
+(7, 'Karung'),
+(8, 'Orang');
 
 -- --------------------------------------------------------
 
@@ -190,7 +195,9 @@ INSERT INTO `stok_masuk` (`id`, `tanggal`, `barcode`, `jumlah`, `keterangan`, `s
 (9, '2022-02-15 08:29:05', 3, '30', 'penambahan', 3),
 (10, '2022-02-15 08:29:18', 4, '11', 'penambahan', 3),
 (11, '2022-02-15 08:29:28', 5, '11', 'penambahan', 4),
-(12, '2022-02-15 08:29:40', 6, '11', 'penambahan', 5);
+(12, '2022-02-15 08:29:40', 6, '11', 'penambahan', 5),
+(13, '2022-10-02 07:14:52', 7, '100', 'penambahan', 6),
+(14, '2022-10-02 21:44:14', 8, '100', 'penambahan', 6);
 
 -- --------------------------------------------------------
 
@@ -213,7 +220,8 @@ CREATE TABLE `supplier` (
 INSERT INTO `supplier` (`id`, `nama`, `alamat`, `telepon`, `keterangan`) VALUES
 (3, 'Moh. Salman', 'Mlandingan', '085656565656', 'Supplier makanan dan minuman\r\n'),
 (4, 'M. Tashal lada le', 'Indonesia', '09857575483', 'Supplier bahan rumah tangga\r\n'),
-(5, 'PT. Telkom Indonesia', 'Jakarta', '0889898789898', 'Supplier all about internet access\r\n\r\n');
+(5, 'PT. Telkom Indonesia', 'Jakarta', '0889898789898', 'Supplier all about internet access\r\n\r\n'),
+(6, 'Hagia', 'Ngawi', '085', 'supplier');
 
 -- --------------------------------------------------------
 
@@ -232,7 +240,7 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`id`, `nama`, `alamat`) VALUES
-(1, 'Z`s Market', 'Jln. Jember - Bondowoso, Bondowoso, Jawa Timur');
+(1, 'IT ENCODER', 'UIN Maulana Malik Ibrahim malang');
 
 -- --------------------------------------------------------
 
@@ -267,7 +275,12 @@ INSERT INTO `transaksi` (`id`, `tanggal`, `barcode`, `qty`, `total_bayar`, `juml
 (7, '2022-02-09 11:53:19', '3,6', '4,2', '132000', '150000', '10000', 3, 'K6GQ13UEN143JZ3', 1),
 (8, '2022-02-09 11:54:19', '4', '3', '765000', '800000', '', 0, '6QQDL2EIW4V9AAG', 1),
 (9, '2022-02-09 11:54:42', '6', '5', '250000', '250000', '', 3, 'ML7E0PVVXHZS3HX', 1),
-(10, '2022-02-15 08:30:08', '4', '2', '510000', '520000', '', 0, 'O4P738WZ3D1KJ9I', 1);
+(10, '2022-02-15 08:30:08', '4', '2', '510000', '520000', '', 0, 'O4P738WZ3D1KJ9I', 1),
+(11, '2022-10-01 11:27:53', '3', '3', '24000', '100000', '2000', 3, 'SW4TJ8XWAEL1V47', 1),
+(12, '2022-10-02 07:16:09', '7,3', '7,8', '96000', '100000', '10', 3, 'QRFI7WNRLCDFVPW', 5),
+(13, '2022-10-02 07:17:28', '5,5', '2', '80000', '100000', '', 3, '9STCBW96NNRPARL', 5),
+(14, '2022-10-02 21:44:41', '8', '10', '10000000', '100000000', '', 3, 'O47YMDQPN0QOX6G', 1),
+(15, '2022-10-03 10:17:40', '8', '3', '3000000', '3000000', '', 3, '14Z5F2B6BS8LIZF', 1);
 
 --
 -- Indexes for dumped tables
@@ -341,7 +354,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `kategori_produk`
 --
 ALTER TABLE `kategori_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
@@ -353,19 +366,19 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `satuan_produk`
 --
 ALTER TABLE `satuan_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `stok_keluar`
@@ -377,13 +390,13 @@ ALTER TABLE `stok_keluar`
 -- AUTO_INCREMENT for table `stok_masuk`
 --
 ALTER TABLE `stok_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `toko`
@@ -395,7 +408,7 @@ ALTER TABLE `toko`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
